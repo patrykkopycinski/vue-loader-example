@@ -9,6 +9,10 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
         test: /\.vue$/,
         loader: vue.withLoaders({
           // apply babel transform to all javascript
@@ -18,5 +22,10 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-map'
-}
+  devtool: 'source-map',
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  }
+};
